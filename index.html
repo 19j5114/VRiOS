@@ -40,17 +40,24 @@
       var timer1, timer2;
       var objTag = ['link1', 'link2', 'link3'];
       let sphereFlag = 0;
+      let touchFlag = 0;
+      var touchCheck = document.getElementById("touch1");
       var image = document.getElementById("skyimg");   // 画像の取得
-      //var audio = document.getElementById("audio");    // 音声の取得
       var audio = new Audio();
     </script>
 
     <script>//ボタン
       const btnPlay = document.getElementById("play");  // 再生ボタンの取得
       btnPlay.addEventListener("click", (e) => {        // クリックされたら
-        audio.src = 'audio/kyoukai_1.m4a';
-        audio.load();
-        audio.play();
+        if(touchFlag == 0){
+          audio.src = 'audio/kyoukai_1.m4a';
+          audio.load();
+          audio.play();
+          touchFlag = 1;
+          touchCheck.remove();
+        }else{
+          audio.play();
+        }
       });
       const btnStop = document.getElementById("stop");  // 停止ボタンの取得
       btnStop.addEventListener("click", (e) => {        // クリックされたら
