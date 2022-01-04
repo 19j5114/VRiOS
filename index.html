@@ -42,14 +42,13 @@
       var image = document.getElementById("skyimg");   // 画像の取得
       //var audio = document.getElementById("audio");    // 音声の取得
       var audio = new Audio();
-      audio.src = 'audio/kyoukai_1.m4a';
-      audio.load();
-      audio.play();
     </script>
 
     <script>//ボタン
       const btnPlay = document.getElementById("play");  // 再生ボタンの取得
       btnPlay.addEventListener("click", (e) => {        // クリックされたら
+        audio.src = 'audio/kyoukai_1.m4a';
+        audio.load();
         audio.play();
       });
       const btnStop = document.getElementById("stop");  // 停止ボタンの取得
