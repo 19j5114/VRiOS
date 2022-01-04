@@ -47,18 +47,15 @@
     </script>
 
     <script>//ボタン
-      window.addEventListener("click", (e) => {
+      const btnPlay = document.getElementById("play");  // 再生ボタンの取得
+      btnPlay.addEventListener("click", (e) => {        // クリックされたら
         if(touchFlag == 0){
           audio = new Audio();
           audio.src = 'audio/kyoukai_1.m4a';
           audio.load();
-          audio.play();
           touchFlag = 1;
           touchCheck.remove();
         }
-      });
-      const btnPlay = document.getElementById("play");  // 再生ボタンの取得
-      btnPlay.addEventListener("click", (e) => {        // クリックされたら
         audio.play();
       });
       const btnStop = document.getElementById("stop");  // 停止ボタンの取得
