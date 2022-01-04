@@ -32,7 +32,7 @@
     <!-- 再生・停止ボタンを押すための視線カーソル（スマホ用） -->
     <a-camera>
       <a-cursor fuse="true"></a-cursor>
-      <a-entity cursor="rayOrigin: mouse"></a-entity>
+      <a-entity id="touch1" cursor="rayOrigin: mouse"></a-entity>
     </a-camera>
   </a-scene>
 
@@ -47,17 +47,18 @@
     </script>
 
     <script>//ボタン
-      const btnPlay = document.getElementById("play");  // 再生ボタンの取得
-      btnPlay.addEventListener("click", (e) => {        // クリックされたら
+      window.addEventListener("click", (e) => {
         if(touchFlag == 0){
           audio.src = 'audio/kyoukai_1.m4a';
           audio.load();
           audio.play();
           touchFlag = 1;
           touchCheck.remove();
-        }else{
-          audio.play();
         }
+      });
+      const btnPlay = document.getElementById("play");  // 再生ボタンの取得
+      btnPlay.addEventListener("click", (e) => {        // クリックされたら
+        audio.play();
       });
       const btnStop = document.getElementById("stop");  // 停止ボタンの取得
       btnStop.addEventListener("click", (e) => {        // クリックされたら
