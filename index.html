@@ -43,12 +43,13 @@
       let touchFlag = 0;
       var touchCheck = document.getElementById("touch1");
       var image = document.getElementById("skyimg");   // 画像の取得
-      var audio = new Audio();
+      var audio;
     </script>
 
     <script>//ボタン
       window.addEventListener("click", (e) => {
         if(touchFlag == 0){
+          audio = new Audio();
           audio.src = 'audio/kyoukai_1.m4a';
           audio.load();
           audio.play();
